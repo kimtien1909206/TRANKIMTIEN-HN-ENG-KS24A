@@ -1,17 +1,36 @@
 #include <iostream>
+#include <vector>
+#include <algorithm> 
 using namespace std;
-
+    // Nhap so luong phan tu mang A 
 int main() {
-    // Khai báo và khoi tao hai bien so nguyên
-    int a = 11;
-    int b = 10;
-
-    // Tính tong cua a và b
-    int sum_result = a + b;
-
-    // In ket qua
-    cout << "Tong cua a và b là: " << sum_result << endl;
-
+    int n;
+    cin >> n;
+    // Nhap cac phan tu mang A
+    vector<int> A(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> A[i]; 
+    } 
+    vector<int> even, odd;
+    // Phan Chan va Le 
+    for (int i = 0; i < n; ++i) {
+        if (A[i] % 2 == 0) {
+            even.push_back(A[i]);
+        } else {
+            odd.push_back(A[i]);
+        }
+    }
+    // Sap sep cac mang theo thu tu tang dan 
+    sort(even.begin(), even.end());
+    sort(odd.begin(), odd.end());
+    
+    for (int i = 0; i < even.size(); ++i) {
+        cout << even[i] << " ";
+    }
+    for (int i = 0; i < odd.size(); ++i) {
+        cout << odd[i] << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
-
